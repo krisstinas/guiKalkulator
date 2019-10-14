@@ -6,6 +6,8 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author Korisnik
@@ -51,7 +53,28 @@ public class GuiSaberiOduzmi {
         txtC = new JTextField(null, 5);
         lblC = new JLabel("C");
         
+        txtC.setEditable(false);
+        
         btnSaberi = new JButton("Saberi");
+        
+        btnSaberi.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                int br1, br2, rez;
+                
+                try {
+                    br1 = Integer.parseInt(txtA.getText());
+                    br2 = Integer.parseInt(txtB.getText());
+                    
+                    rez = br1 + br2;
+                    txtC.setText(Integer.toString(rez));
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Unesi broj!");
+                }
+            }
+        });
+        
         btnOduzmi = new JButton("Oduzmi");
         
         c.insets = new Insets(20, 10, 20, 10);
