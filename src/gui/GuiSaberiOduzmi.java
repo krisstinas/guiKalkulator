@@ -77,6 +77,23 @@ public class GuiSaberiOduzmi {
         
         btnOduzmi = new JButton("Oduzmi");
         
+        btnOduzmi.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                int br1, br2, rez;
+                
+                try {
+                    br1 = Integer.parseInt(txtA.getText());
+                    br2 = Integer.parseInt(txtB.getText());
+                    rez = br1 - br2;
+                    txtC.setText(Integer.toString(rez));
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Unesi broj!");
+                }
+            }
+        });
+        
         c.insets = new Insets(20, 10, 20, 10);
         
         c.gridx = 0;
